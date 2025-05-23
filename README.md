@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AirlineManagementSystem
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+# Airline-Management-System-Angular-
+I have created this project using Angular version . I have performed CRUD operation as user can add flight , edit flight, update flight, delete flight and search flight using flight code or typer is it international or domestic type
+>>>>>>> dcb1b947ef46e2d4be4e0c5dc5a6eef7eb451b90
