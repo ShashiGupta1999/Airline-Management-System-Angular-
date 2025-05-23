@@ -1,0 +1,85 @@
+<div class="container">
+  <h2>Create Flight</h2>
+
+  <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+    <!-- Provider Name Input -->
+    <div class="form-group">
+      <label for="providerName">Provider Name:</label>
+      <input
+        type="text"
+        id="providerName"
+        formControlName="providerName"
+        class="form-control"
+        placeholder="Enter Provider Name"
+        data-test-id="provider-name-input"
+      />
+      <div
+        *ngIf="
+          flightForm.get('providerName')?.touched &&
+          flightForm.get('providerName')?.invalid
+        "
+        data-test-id="provider-name-error"
+      >
+        <span *ngIf="flightForm.get('providerName')?.errors?.['required']"
+          >Provider Name is required.</span
+        >
+        <span *ngIf="flightForm.get('providerName')?.errors?.['pattern']"
+          >Only alphabets are allowed.</span
+        >
+        <span *ngIf="flightForm.get('providerName')?.errors?.['maxlength']"
+          >Maximum 10 characters allowed.</span
+        >
+      </div>
+    </div>
+
+    <!-- Provider Code Input -->
+    <div class="form-group">
+      <label for="providerCode">Provider Code:</label>
+      <input
+        type="text"
+        id="providerCode"
+        formControlName="providerCode"
+        class="form-control"
+        readonly
+        data-test-id="provider-code-input"
+      />
+    </div>
+
+    <!-- Provider Type Input -->
+    <div class="form-group">
+      <label for="providerType">Provider Type:</label>
+      <input
+        type="text"
+        id="providerType"
+        formControlName="providerType"
+        class="form-control"
+        placeholder="Enter Provider Type"
+        data-test-id="provider-type-input"
+      />
+      <div
+        *ngIf="flightForm.get('providerType')?.['touched'] && flightForm.get('providerType')?.['invalid']"
+        data-test-id="provider-type-error"
+      >
+        <span *ngIf="flightForm.get('providerType')?.errors?.['required']"
+          >Provider Type is required.</span
+        >
+        <span *ngIf="flightForm.get('providerType')?.errors?.['pattern']"
+          >Only alphabets are allowed.</span
+        >
+        <span *ngIf="flightForm.get('providerType')?.errors?.['maxlength']"
+          >Maximum 13 characters allowed.</span
+        >
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="flightForm.invalid"
+      data-test-id="insert-flight-button"
+    >
+      Insert Flight
+    </button>
+  </form>
+</div>

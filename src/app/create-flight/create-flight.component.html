@@ -1,0 +1,33 @@
+<h2>Add Airline</h2>
+<form (ngSubmit)="save()">
+  <label>
+    Provider Name:
+    <select
+      [(ngModel)]="airline.providerName"
+      name="providerName"
+      (change)="onProviderNameChange()"
+      required
+    >
+      <option value="" disabled>Select Provider</option>
+      <option *ngFor="let provider of providers" [value]="provider">
+        {{ provider }}
+      </option>
+    </select>
+  </label>
+
+  <label>
+    Provider Code:
+    <input [value]="airline.providerCode" disabled />
+  </label>
+
+  <label>
+    Provider Type:
+    <select [(ngModel)]="airline.providerType" name="providerType" required>
+      <option value="" disabled>Select Type</option>
+      <option value="Domestic">Domestic</option>
+      <option value="International">International</option>
+    </select>
+  </label>
+
+  <button>Add Flight</button>
+</form>

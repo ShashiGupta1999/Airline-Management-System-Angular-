@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'AirlineManagementSystem'`, () => {
+  it(`should have as title 'CaseStudy'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('AirlineManagementSystem');
+    expect(app.title).toEqual('CaseStudy');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('AirlineManagementSystem app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('CaseStudy app is running!');
   });
 });

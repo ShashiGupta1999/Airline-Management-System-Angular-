@@ -1,0 +1,26 @@
+<h1>View Airline Providers Information</h1>
+
+<div class="search">
+  <label for="input">Filter by Provider type:</label>
+  <input
+    type="text"
+    placeholder="filter by provider type"
+    (input)="onProviderTypeChange($event)"
+  />
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Provider Name</th>
+      <th>Provider Code</th>
+      <th>Provider Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let airline of filteredAirlines">
+      <td>{{ airline.providerName }}</td>
+      <td>{{ airline.providerCode }}</td>
+      <td>{{ airline.providerType }}</td>
+    </tr>
+  </tbody>
+</table>

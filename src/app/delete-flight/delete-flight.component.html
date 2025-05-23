@@ -1,0 +1,49 @@
+<h2>Delete Flight</h2>
+
+<form [formGroup]="deleteFlightForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="providerCode">Provider Code:</label>
+    <input
+      type="text"
+      id="providerCode"
+      formControlName="providerCode"
+      (blur)="checkProviderCode()"
+    />
+    <div *ngIf="deleteFlightForm.get('providerCode')?.errors?.['required']">
+      Provider code is required.
+    </div>
+    <div
+      *ngIf="deleteFlightForm.get('providerCode')?.errors?.['minlength'] || deleteFlightForm.get('providerCode')?.errors?.['maxlength']"
+    >
+      Provider code must be exactly 3 characters.
+    </div>
+    <div *ngIf="deleteFlightForm.get('providerCode')?.errors?.['pattern']">
+      Provider code must be alphanumeric.
+    </div>
+    <div *ngIf="deleteFlightForm.get('providerCode')?.errors?.['notExists']">
+      {{ errorMessage }}
+    </div>
+  </div>
+
+  <div>
+    <label for="providerType">Provider Type:</label>
+    <input type="text" id="providerType" formControlName="providerType" />
+    <div *ngIf="deleteFlightForm.get('providerType')?.errors?.['required']">
+      Provider type is required.
+    </div>
+    <div *ngIf="deleteFlightForm.get('providerType')?.errors?.['maxlength']">
+      Provider type cannot exceed 13 characters.
+    </div>
+    <div *ngIf="deleteFlightForm.get('providerType')?.errors?.['pattern']">
+      Provider type must contain only alphabets.
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage">
+    <span class="error">{{ errorMessage }}</span>
+  </div>
+
+  <button type="submit" [disabled]="deleteFlightForm.invalid">
+    Delete Flight
+  </button>
+</form>
